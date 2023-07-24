@@ -6,7 +6,7 @@ pipeline{
             steps{
                 git 'https://github.com/pallapoo/estore-admin-app.git'
 
-                sh "npm install -f"
+                sh "--npm install -f"
 
                 echo 'Source stage finished'
             }
