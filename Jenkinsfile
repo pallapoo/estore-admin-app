@@ -1,23 +1,21 @@
-pipeline{
+pipeline {
     agent any
     tools {nodejs "NodeJS"}
-    stages{
+    stages {
         stage('Source') {
-            steps{
-                git 'https://github.com/pallapoo/estore-admin-app.git'
-
-                sh "--npm install -f"
+            steps {
+                git url: 'https://github.com/pallapoo/estore-admin-app.git' 
+                
+                bat "npm install"
 
                 echo 'Source stage finished'
             }
         }
 
-        stage('Build'){
-            steps{
-                sh "npm run ng build"
+        stage('Build') {
+            steps {
+                bat "npm run ng build"
                 echo 'Build stage finished'
-
-
             }
         }
     }
